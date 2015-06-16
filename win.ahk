@@ -1,21 +1,21 @@
 #Include .\vim.ahk
 
 #g::
-WinGetClass, class, A
-MsgBox, The active window's class is "%class%"
+	WinGetClass, class, A
+	MsgBox, The active window's class is "%class%"
 return
 
 CapsLock::Esc
 +Esc::CapsLock
 
 ::zzd::
-FormatTime, d,, yyyy-MM-dd
-SendInput %d%
+	FormatTime, d,, yyyy-MM-dd
+	SendInput %d%
 return
 
 ::zzt::
-FormatTime, t,, yyyy-MM-dd HH:mm:ss
-SendInput %t%
+	FormatTime, t,, yyyy-MM-dd HH:mm:ss
+	SendInput %t%
 return
 
 If WinActive("ahk_class #32770") {
