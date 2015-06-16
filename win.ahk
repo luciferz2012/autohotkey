@@ -6,6 +6,7 @@
 return
 
 CapsLock::Esc
+
 +Esc::CapsLock
 
 ::zzd::
@@ -19,10 +20,25 @@ return
 return
 
 TouchScreenDisabled:=0
+
 RemoveToolTip:
 	SetTimer, RemoveToolTip, Off
 	ToolTip
 return
+
+EnableTouchScreen()
+{
+	Run c:\.tool\DevManView\DevManView.exe /enable "HID-compliant touch screen"
+	ToolTip, Touch screen is enabled
+	SetTimer, RemoveToolTip, 3000
+}
+
+DisableTouchScreen()
+{
+	Run c:\.tool\DevManView\DevManView.exe /disable "HID-compliant touch screen"
+	ToolTip, Touch screen is disabled
+	SetTimer, RemoveToolTip, 3000
+}
 
 #IfWinActive ahk_class #32770
 	Tab::Down
@@ -30,17 +46,25 @@ return
 	LWin::
 		If TouchScreenDisabled = 0
 		{
-			Run c:\.tool\DevManView\DevManView.exe /disable "HID-compliant touch screen"
-			ToolTip, Touch screen is disabled
-			SetTimer, RemoveToolTip, 3000
 			TouchScreenDisabled = 1
+			DisableTouchScreen()
 		}
 		Else
 		{
-			Run c:\.tool\DevManView\DevManView.exe /enable "HID-compliant touch screen"
-			ToolTip, Touch screen is enabled
-			SetTimer, RemoveToolTip, 3000
 			TouchScreenDisabled = 0
+			EnableTouchScreen()
 		}
 	Return
 #IfWinActive
+
+LWin::
+	if TouchScreenDisabled = 0
+	{
+		Send {LWin}
+	}
+	Else
+	{
+		TouchScreenDisabled = 0
+		EnableTouchScreen()
+	}
+Return
