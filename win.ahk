@@ -42,25 +42,13 @@ DisableTouchScreen()
 
 #IfWinActive ahk_class #32770
 	Tab::Down
-#IfWinActive ahk_class OpusApp
-	LWin::
-		If TouchScreenDisabled = 0
-		{
-			TouchScreenDisabled = 1
-			DisableTouchScreen()
-		}
-		Else
-		{
-			TouchScreenDisabled = 0
-			EnableTouchScreen()
-		}
-	Return
 #IfWinActive
 
 LWin::
 	if TouchScreenDisabled = 0
 	{
-		Send {LWin}
+		TouchScreenDisabled = 1
+		DisableTouchScreen()
 	}
 	Else
 	{
@@ -68,3 +56,5 @@ LWin::
 		EnableTouchScreen()
 	}
 Return
+
+LAlt::RWin
