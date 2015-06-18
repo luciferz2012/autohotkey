@@ -19,8 +19,6 @@ return
 	SendInput %t%
 return
 
-TouchScreenDisabled:=0
-
 EnableTouchScreen()
 {
 	Run c:\.tool\DevManView\DevManView.exe /enable "HID-compliant touch screen"
@@ -35,18 +33,32 @@ DisableTouchScreen()
 
 #IfWinActive ahk_class #32770
 	Tab::Down
+#IfWinActive ahk_class OpusApp
+{
+	LWin::
+		If TouchScreenDisabled = 1
+		{
+			TouchScreenDisabled = 0
+			EnableTouchScreen()
+		}
+		Else
+		{
+			TouchScreenDisabled = 1
+			DisableTouchScreen()
+		}
+	return
+}
 #IfWinActive
 
 LWin::
-	if TouchScreenDisabled = 0
-	{
-		TouchScreenDisabled = 1
-		DisableTouchScreen()
-	}
-	Else
+	if TouchScreenDisabled = 1
 	{
 		TouchScreenDisabled = 0
 		EnableTouchScreen()
+	}
+	Else
+	{
+		Send {RWin down}{Tab}{RWin up}
 	}
 Return
 
