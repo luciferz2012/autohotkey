@@ -20,18 +20,18 @@ Input_Eng(text){
 }
 
 ::zzd::
-	FormatTime, d,, yyyy-MM-dd
+	FormatTime d,, yyyy-MM-dd
 	Input_Eng(d)
 return
 
 ::zzt::
-	FormatTime, t,, yyyy-MM-dd HH:mm:ss
+	FormatTime t,, yyyy-MM-dd HH:mm:ss
 	Input_Eng(t)
 return
 
 #IfWinActive ahk_class #32770
 	Tab::Down
-#IfWinActive, ahk_group OneNoteGroup
+#IfWinActive ahk_group OneNoteGroup
 	RShift::
 		if(VIM_IME_GET()=1){
 			Send {Esc}
