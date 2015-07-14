@@ -12,6 +12,7 @@ GroupAdd VimGroup, ahk_class Chrome_WidgetWin_1 ; Visual Studio Code
 
 GroupAdd OneNoteGroup, ahk_exe onenote.exe ; OneNote Desktop
 GroupAdd OneNoteGroup, ahk_exe onenoteim.exe ; OneNote Mobile
+GroupAdd OneNoteGroup, OneNote ; OneNote in Windows 10
 
 vim_verbose=2
 
