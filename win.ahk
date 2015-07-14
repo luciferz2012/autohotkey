@@ -38,3 +38,8 @@ return
 #IfWinActive
 
 ; RAlt::
+
+#F1::Volume_Mute
+#F2::Media_Play_Pause
+#F3::Media_Prev
+#F4::Media_Next
