@@ -35,6 +35,10 @@ return
 			VIM_IME_SET(1)
 		}
 	return
+#IfWinActive ahk_exe Todoist.exe
+	#z::
+		Send /p1, p2, p3{Enter}{Tab}
+	return
 #IfWinActive
 
 #F1::Media_Prev
