@@ -1,0 +1,13 @@
+#include .\win.ahk
+
+#z::#6
+
+#q::
+if WinActive(".*Todoist") {
+	Send q
+} else {
+	Send #6
+	Sleep 3000
+	Send q
+}
+return
