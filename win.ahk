@@ -37,7 +37,8 @@ return
 	return
 #IfWinActive ahk_exe Todoist.exe
 	#z::
-		Send /p1, p2, p3{Enter}{Tab}
+		Input_Eng("/p1, p2, p3")
+		Send {Enter}{Tab}
 	return
 #IfWinActive
 
