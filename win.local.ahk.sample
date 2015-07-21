@@ -18,3 +18,5 @@ return
 	}
 	Send q
 return
+
+FileCopy, C:\.shortcut\taskbar\*, D:\test

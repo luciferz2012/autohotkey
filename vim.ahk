@@ -1,4 +1,7 @@
 ﻿; Auto-execute section {{{
+
+#Include .\vim.local.ahk
+
 GroupAdd VimGroup, ahk_class Notepad
 GroupAdd VimGroup, ahk_class WordPadClass
 GroupAdd VimGroup, ahk_class TTeraPadMainForm
