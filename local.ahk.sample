@@ -1,0 +1,20 @@
+#Include .\win.ahk
+
+#z::
+	IfWinNotActive, Todoist
+	{
+		Send #2
+		Sleep 3000
+	}
+	Input_Eng("/p1, p2, p3")
+	Send {Enter}{Tab}
+return
+
+#q::
+	IfWinNotActive, Todoist
+	{
+		Send #2
+		Sleep 3000
+	}
+	Send q
+return
