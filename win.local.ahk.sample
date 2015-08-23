@@ -1,6 +1,7 @@
 #Include .\win.ahk
 
 #z::
+	FileCopy, C:\.shortcut\.taskbar\*, C:\Users\Luciferz2012\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\, 1
 	IfWinNotActive, Todoist
 	{
 		Send #2
@@ -11,6 +12,7 @@
 return
 
 #q::
+	FileCopy, C:\.shortcut\.taskbar\*, C:\Users\Luciferz2012\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\, 1
 	IfWinNotActive, Todoist
 	{
 		Send #2
