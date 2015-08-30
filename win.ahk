@@ -16,6 +16,11 @@ return
 	Input_Eng(t)
 return
 
+::zzi::
+	FormatTime t,, yyyyMMdd
+	Input_Eng(t)
+return
+
 #IfWinActive ahk_class #32770
 	Tab::Down
 #IfWinActive ahk_exe OneNote.exe

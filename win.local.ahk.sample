@@ -1,4 +1,5 @@
 #Include .\win.ahk
+#SingleInstance force
 
 #z::
 	FileCopy, C:\.shortcut\.taskbar\*, C:\Users\Luciferz2012\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\, 1
@@ -20,3 +21,9 @@ return
 	}
 	Send q
 return
+
+#F20::
+	run "C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE"
+return
+
+#F19::send #+s
