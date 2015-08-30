@@ -21,5 +21,8 @@ return
 	Send q
 return
 
-#F20::run "C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE"
+#F20::
+	run "C:\Program Files\Microsoft Office 15\root\office15\ONENOTE.EXE"
+return
+
 #F19::send #+s
