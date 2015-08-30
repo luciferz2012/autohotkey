@@ -18,7 +18,7 @@ return
 
 #IfWinActive ahk_class #32770
 	Tab::Down
-#IfWinActive OneNote
+#IfWinActive ahk_exe OneNote.exe
 	RShift::Esc
 #IfWinActive
 
