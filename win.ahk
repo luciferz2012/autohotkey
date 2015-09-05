@@ -23,8 +23,6 @@ return
 
 #IfWinActive ahk_class #32770
 	Tab::Down
-#IfWinActive ahk_exe OneNote.exe
-	RShift::Esc
 #IfWinActive
 
 #F1::Media_Prev
