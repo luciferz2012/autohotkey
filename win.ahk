@@ -27,3 +27,4 @@ return
 
 #F1::Media_Prev
 #F2::Media_Next
+#F3::Media_Play_Pause
