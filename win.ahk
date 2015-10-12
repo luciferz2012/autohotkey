@@ -7,6 +7,8 @@ CapsLock & D::send {PgDn}
 CapsLock & I::send {End}
 CapsLock & A::send {Home}
 
+CapsLock & V::run "C:\Program Files (x86)\Vim\vim74\gvim.exe"
+
 CapsLock::Esc
 
 +Esc::CapsLock
