@@ -1,12 +1,3 @@
-CapsLock & H::send {Left}
-CapsLock & J::send {Down}
-CapsLock & K::send {Up}
-CapsLock & L::send {Right}
-CapsLock & U::send {PgUp}
-CapsLock & D::send {PgDn}
-CapsLock & I::send {End}
-CapsLock & A::send {Home}
-
 CapsLock::Esc
 
 +Esc::CapsLock
