@@ -1,4 +1,3 @@
-
 #IfWinActive ahk_exe onenote.exe
 	CapsLock & B::send ^{Left}
 	CapsLock & J::send ^{Down}
@@ -7,6 +6,10 @@
 #IfWinActive
 	CapsLock & J::send {Down}
 	CapsLock & K::send {Up}
+
+CapsLock & A::send {End}
+CapsLock & I::send {Home}
+
 CapsLock::Esc
 
 +Esc::CapsLock
