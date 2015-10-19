@@ -1,18 +1,25 @@
-#IfWinActive ahk_exe onenote.exe
-	CapsLock & B::send ^{Left}
-	CapsLock & J::send ^{Down}
-	CapsLock & K::send ^{Up}
-	CapsLock & W::send ^{Right}
-#IfWinActive
-	CapsLock & J::send {Down}
-	CapsLock & K::send {Up}
+#Include .\vim.ahk
 
-CapsLock & A::send {End}
-CapsLock & I::send {Home}
+CapsLock & Space::Send {Esc}
+CapsLock & A::Send {End}
+CapsLock & I::Send {Home}
 
-CapsLock::Esc
-
-+Esc::CapsLock
+CapsLock::
+if WinActive("ahk_group VimGroup"){
+    if (VIM_IME_GET(A)) {
+        if (VIM_IME_GetConverting(A)) {
+            Send,{Esc}
+        } else {
+            VIM_IME_SET()
+            VimSetMode("Vim_Normal")
+        }
+    } else {
+        VimSetMode("Vim_Normal")
+    }
+} else {
+    Send {Esc}
+}
+return
 
 Input_Eng(text){
 	Send %text%
