@@ -12,12 +12,13 @@ GroupAdd VimGroup, ahk_class PP12FrameClass ; PowerPoint
 GroupAdd VimGroup, ahk_class OpusApp ; Word
 GroupAdd VimGroup, ahk_class ENMainFrame ; Evernote
 GroupAdd VimGroup, ahk_exe Code.exe ; Visual Studio Code
+GroupAdd VimGroup, ahk_exe onenote.exe ; OneNote Desktop
+GroupAdd VimGroup, OneNote ; OneNote in Windows 10
 
 GroupAdd DoubleHome, ahk_exe Code.exe ; Visual Studio Code
 
 GroupAdd OneNoteGroup, ahk_exe onenote.exe ; OneNote Desktop
-GroupAdd OneNoteGroup, ahk_exe onenoteim.exe ; OneNote Mobile
-GroupAdd OneNoteGroup, OneNote ; OneNote in Windows 10
+GroupAdd OneNoteGroup, , OneNote ; OneNote in Windows 10
 
 vim_verbose=2
 
@@ -120,7 +121,7 @@ VIM_IME_SET(SetSts=0, WinTitle="A")    {
 Status(Title){
     WinGetPos,,,W,H,A
     Tooltip,%Title%,W/2,H/2
-    SetTimer, RemoveStatus, 1000
+    SetTimer, RemoveStatus, 16000
 }
 
 RemoveStatus:
@@ -509,9 +510,17 @@ VimMove(key="", shift=0){
 
   ; 1 character
   if (key="j"){
-    Send,{Down}
+    if WinActive("ahk_group OneNoteGroup"){
+      Send ^{Down}
+    } else {
+      Send,{Down}
+    }
   }else if (key="k"){
-    Send,{Up}
+    if WinActive("ahk_group OneNoteGroup"){
+      Send ^{Up}
+    } else {
+      Send,{Up}
+    }
   ; Page Up/Down
   }else if (key="^u"){
     Send,{Up 10}
