@@ -1,12 +1,13 @@
 #Include .\vim.ahk
 
-CapsLock & Space::Send {Esc}
++Space::Send {Esc}
 CapsLock & A::Send {End}
 CapsLock & I::Send {Home}
 
 CapsLock::
 if WinActive("ahk_group VimGroup"){
-    if (VIM_IME_GET(A)) {
+    LastIME:=VIM_IME_GET()
+    if (LastIME) {
         if (VIM_IME_GetConverting(A)) {
             Send,{Esc}
         } else {
@@ -22,7 +23,14 @@ if WinActive("ahk_group VimGroup"){
 return
 
 Input_Eng(text){
-	Send %text%
+    if(VIM_IME_GET(A)){
+        sleep 100
+        VIM_IME_SET()
+        Send %text%
+        VIM_IME_SET(1)
+    }else{
+        Send %text%
+    }
 }
 
 ::zzd::
