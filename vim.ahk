@@ -5,9 +5,9 @@
 GroupAdd VimGroup, ahk_class Notepad
 GroupAdd VimGroup, ahk_class WordPadClass
 GroupAdd VimGroup, ahk_class TTeraPadMainForm
-; GroupAdd VimGroup, ahk_class CabinetWClass ; Exploler
-; GroupAdd VimGroup, 作成 ;Thunderbird, 日本語
-; GroupAdd VimGroup, Write: ;Thuderbird, English
+GroupAdd VimGroup, ahk_class CabinetWClass ; Exploler
+GroupAdd VimGroup, 作成 ;Thunderbird, 日本語
+GroupAdd VimGroup, Write: ;Thuderbird, English
 GroupAdd VimGroup, ahk_class PP12FrameClass ; PowerPoint
 GroupAdd VimGroup, ahk_class OpusApp ; Word
 GroupAdd VimGroup, ahk_class ENMainFrame ; Evernote
@@ -20,8 +20,7 @@ GroupAdd DoubleHome, ahk_exe Code.exe ; Visual Studio Code
 GroupAdd OneNoteGroup, ahk_exe onenote.exe ; OneNote Desktop
 GroupAdd OneNoteGroup, , OneNote ; OneNote in Windows 10
 
-vim_verbose=2
-
+vim_verbose=0
 VimMode=Insert
 Vim_g=0
 Vim_n=0
@@ -122,12 +121,11 @@ VIM_IME_SET(SetSts=0, WinTitle="A")    {
 Status(Title){
     WinGetPos,,,W,H,A
     Tooltip,%Title%,W/2,H/2
-    SetTimer, RemoveStatus, 16000
+    SetTimer, RemoveStatus, 1000
 }
 
 RemoveStatus:
     SetTimer, RemoveStatus, off
-    ; SplashTextOff
     Tooltip
 return
 
@@ -204,12 +202,17 @@ Esc:: ; Just send Esc at converting, long press for normal Esc.
     Send,{Esc}
     Return
   }
-  if (VIM_IME_GET(A)) {
-    Send,{Esc}
-    Sleep 1
-    VIM_IME_SET()
+  LastIME:=VIM_IME_Get()
+  if (LastIME) {
+    if (VIM_IME_GetConverting(A)) {
+      Send,{Esc}
+    } else {
+      VIM_IME_SET()
+      VimSetMode("Vim_Normal")
+    }
+  } else {
+    VimSetMode("Vim_Normal")
   }
-  VimSetMode("Vim_Normal")
   Return
 ; }}}
 
@@ -218,6 +221,7 @@ Esc:: ; Just send Esc at converting, long press for normal Esc.
 i::VimSetMode("Insert")
 +i::
   Send,{Home}
+  Sleep 200
   VimSetMode("Insert")
   Return
 a::
@@ -226,6 +230,7 @@ a::
   Return
 +a::
   Send,{End}
+  Sleep 200
   VimSetMode("Insert")
   Return
 o::
@@ -234,6 +239,7 @@ o::
   Return
 +o::
   Send,{Up}{End}{Enter}
+  Sleep 200
   VimSetMode("Insert")
   Return
 ; }}}

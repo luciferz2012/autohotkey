@@ -23,9 +23,10 @@ if WinActive("ahk_group VimGroup"){
 return
 
 Input_Eng(text){
-    if(VIM_IME_GET(A)){
+    if(VIM_IME_GET()){
         sleep 100
         VIM_IME_SET()
+        sleep 100
         Send %text%
         VIM_IME_SET(1)
     }else{
