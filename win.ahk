@@ -3,6 +3,7 @@
 +Space::Send {Esc}
 CapsLock & A::Send {End}
 CapsLock & I::Send {Home}
+PrintScreen::AppsKey
 
 CapsLock::
 if WinActive("ahk_group VimGroup"){
