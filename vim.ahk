@@ -20,7 +20,7 @@ GroupAdd DoubleHome, ahk_exe Code.exe ; Visual Studio Code
 GroupAdd OneNoteGroup, ahk_exe onenote.exe ; OneNote Desktop
 GroupAdd OneNoteGroup, , OneNote ; OneNote in Windows 10
 
-vim_verbose=0
+vim_verbose=1
 VimMode=Insert
 Vim_g=0
 Vim_n=0
