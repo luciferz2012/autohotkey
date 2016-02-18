@@ -1,4 +1,5 @@
 #Include .\vim.ahk
+#include .\fn.ahk
 
 +Space::Send {Esc}
 CapsLock & A::Send {End}
@@ -24,34 +25,34 @@ if WinActive("ahk_group VimGroup"){
 return
 
 Input_Eng(text){
-    if(VIM_IME_GET()){
+    if (VIM_IME_GET()) {
         sleep 100
         VIM_IME_SET()
         sleep 100
         Send %text%
         VIM_IME_SET(1)
-    }else{
+    } else {
         Send %text%
     }
 }
 
 ::zzd::
-	FormatTime d,, yyyy-MM-dd
-	Input_Eng(d)
+    FormatTime d,, yyyy-MM-dd
+    Input_Eng(d)
 return
 
 ::zzt::
-	FormatTime t,, yyyy-MM-dd HH:mm:ss
-	Input_Eng(t)
+    FormatTime t,, yyyy-MM-dd HH:mm:ss
+    Input_Eng(t)
 return
 
 ::zzi::
-	FormatTime t,, yyyyMMdd
-	Input_Eng(t)
+    FormatTime t,, yyyyMMdd
+    Input_Eng(t)
 return
 
 #IfWinActive ahk_class #32770
-	Tab::Down
+    Tab::Down
 #IfWinActive
 
 #F1::Media_Prev
