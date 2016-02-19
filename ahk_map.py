@@ -24,8 +24,10 @@ if __name__ == '__main__':
         lines = []
         for i in range(1, 10):
             key = 'F%s' % i
-            lines.append('{key}::{value}'.format(key=fn[key], value=key))
-            lines.append('^{key}::^{value}'.format(key=fn[key], value=key))
-            lines.append('!{key}::!{value}'.format(key=fn[key], value=key))
-            lines.append('^!{key}::^!{value}'.format(key=fn[key], value=key))
+            value = fn[key]
+            lines.append('{key}::{value}'.format(key=value, value=key))
+            lines.append('^{key}::^{value}'.format(key=value, value=key))
+            lines.append('!{key}::!{value}'.format(key=value, value=key))
+            lines.append('^!{key}::^!{value}'.format(key=value, value=key))
+            lines.append('#{key1}::{key2}'.format(key1=value, key2=value))
         f.writelines('\n'.join(lines))
