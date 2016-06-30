@@ -51,6 +51,18 @@ return
     Input_Eng(t)
 return
 
+::zzp::
+    Input_Eng(15011396292)
+return
+
+::zzl::
+    Input_Eng("luciferz2012@gmail.com")
+return
+
+::zzz::
+    Input_Eng("zhe.liu.thu@gmail.com")
+return
+
 #IfWinActive ahk_class #32770
     Tab::Down
 #IfWinActive
