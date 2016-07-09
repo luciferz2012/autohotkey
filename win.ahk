@@ -70,3 +70,24 @@ return
 #F1::Media_Prev
 #F2::Media_Next
 #F3::Media_Play_Pause
+
+#IfWinActive ahk_class OpusApp
+{
+    ; check selected
+    ::zzcs::
+        Input_Eng("221a")
+        Send !x
+    return
+
+    ; check radio
+    ::zzcr::
+        Input_Eng("25cb")
+        Send !x
+    return
+
+    ; check box
+    ::zzcb::
+        Input_Eng("25a1")
+        Send !x
+    return
+}
