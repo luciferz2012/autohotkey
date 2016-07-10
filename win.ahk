@@ -74,19 +74,19 @@ return
 #IfWinActive ahk_class OpusApp
 {
     ; check selected
-    ::zzcs::
+    ::zcs::
         Input_Eng("221a")
         Send !x
     return
 
     ; check radio
-    ::zzcr::
+    ::zcr::
         Input_Eng("25cb")
         Send !x
     return
 
     ; check box
-    ::zzcb::
+    ::zcb::
         Input_Eng("25a1")
         Send !x
     return
