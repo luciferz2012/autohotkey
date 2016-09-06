@@ -73,3 +73,116 @@ wait := 300
         WinGetPos, , , w, h
         MouseMove, w/2, h/2
     return
+
+    Bear2015NM41(){
+        WinGetPos, , , w, h
+        MouseClick, , w/2, h/2+h/4-h/16
+        sleep 500
+        send 1
+        sleep 1000
+        S2()
+        sleep 4000
+        S2()
+        sleep 4000
+        S2()
+        sleep 4000
+        S2()
+        sleep 1000
+        send {click}
+        sleep 20000
+        send {click}
+        sleep 1000
+        send {click}
+        sleep 1000
+        send {click}
+        MouseClick, , w/2-W/5, h-h/9
+        sleep 500
+        MouseClick, , w/2+W/8, h/2+h/10
+        sleep 30000
+        Bear2015NM41()
+    }
+
+    S2(){
+        send {click up}
+        WinGetPos, , , w, h
+        MouseClick, , w/2, h/2, , , D
+        sleep, 300
+        MouseClick, , w/2+w/5, h/2-h/4, , speed, U
+        MouseMove, w/2, h/2
+    }
+
+    t::
+        Pass()
+    return
+
+    y::
+        Test()
+    return
+
+    Pass(){
+        WinGetPos, , , w, h
+        ; click return
+        sleep, 9000
+        MouseClick, , w/5, h/6*5
+        ; click point
+        sleep, 3000
+        MouseClick, , w/2, h/2
+        ; click talk or battle
+        sleep, 9000
+        MouseClick, , w/2, h/2
+        ; no helper
+        sleep, 3000
+        MouseClick, , w/2, h/2-h/10
+        ; start battle
+        sleep, 3000
+        MouseClick, , w/5*4, h/2+h/3
+        
+        sleep, 45000
+
+        MouseClick, , w/2, h/2
+        MouseClick, , w/2, h/2
+        MouseClick, , w/2, h/2
+
+        ; check items
+        MouseClick, , w/2, h/10*9
+        ; check gifts
+        sleep, 9000
+        MouseClick, , w/3*2, h/4*3
+        
+        ; check talk gift
+        MouseClick, , w/2, h/2+h/8
+    }
+
+    Gift(){
+        WinGetPos, , , w, h
+        MouseClick, , w/2, h/5*4
+        sleep, 1000
+        MouseClick, , w/3*2, h/5*3
+        sleep, 1000
+        MouseClick, , w/2, h/5*3
+        sleep, 9000
+    }
+
+    Gifts(){
+        Gift()
+        Gifts()
+    }
+
+    Test(){
+        WinGetPos, , , w, h
+        MouseClick, , w/3*2, h/5*3
+    }
+
+    PassAll(){
+        Pass()
+        sleep, 5000
+        PassAll()
+    }
+
+    p::
+        PassAll()
+    return
+
+    o::
+        Gifts()
+    return
