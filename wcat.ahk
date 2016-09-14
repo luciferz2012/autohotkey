@@ -170,7 +170,7 @@ wait := 300
 
     Test(){
         WinGetPos, , , w, h
-        MouseClick, , w/3*2, h/5*3
+        MouseClick, , w/2, h/2-h/5
     }
 
     PassAll(){
@@ -185,4 +185,43 @@ wait := 300
 
     o::
         Gifts()
+    return
+
+    Event(){
+        WinGetPos, , , w, h
+        ; click talk or battle
+        sleep, 9000
+        MouseClick, , w/2, h/2
+        ; no helper or helper
+        sleep, 3000
+        MouseClick, , w/2, h/2-h/10
+        MouseClick, , w/2, h/2-h/5
+        ; start battle
+        sleep, 3000
+        MouseClick, , w/5*4, h/2+h/3
+        
+        sleep, 45000
+
+        MouseClick, , w/2, h/2
+        MouseClick, , w/2, h/2
+        MouseClick, , w/2, h/2
+
+        ; check items
+        MouseClick, , w/2, h/10*9
+        ; check gifts
+        sleep, 9000
+        MouseClick, , w/3*2, h/4*3
+        
+        ; check talk gift
+        MouseClick, , w/2, h/2+h/8
+    }
+
+    EventAll(){
+        Event()
+        sleep, 5000
+        EventAll()
+    }
+
+    i::
+        EventAll()
     return
