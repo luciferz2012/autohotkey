@@ -102,6 +102,24 @@ wait := 300
         Bear2015NM41()
     }
 
+    Wind(){
+        WinGetPos, , , w, h
+        MouseClick, , w/2, h/2
+        MouseClick, , w/2, h/2
+        MouseClick, , w/2, h/2
+        MouseClick, , w/2, h/10*9
+        sleep, 9000
+        MouseClick, , w/2-W/5, h-h/9
+        sleep, 500
+        MouseClick, , w/2+W/8, h/2+h/10
+        sleep, 45000
+        Wind()
+    }
+
+    ,::
+        Wind()
+    return
+
     S2(){
         send {click up}
         WinGetPos, , , w, h
@@ -123,7 +141,7 @@ wait := 300
         WinGetPos, , , w, h
         ; click return
         sleep, 9000
-        MouseClick, , w/5, h/6*5
+        MouseClick, , w/5+w/32, h/6*5
         ; click point
         sleep, 3000
         MouseClick, , w/2, h/2
@@ -170,7 +188,7 @@ wait := 300
 
     Test(){
         WinGetPos, , , w, h
-        MouseClick, , w/2, h/2-h/5
+        MouseClick, , w/5+w/32, h/6*5
     }
 
     PassAll(){
@@ -183,7 +201,7 @@ wait := 300
         PassAll()
     return
 
-    o::
+    l::
         Gifts()
     return
 
@@ -222,6 +240,6 @@ wait := 300
         EventAll()
     }
 
-    i::
+    m::
         EventAll()
     return
