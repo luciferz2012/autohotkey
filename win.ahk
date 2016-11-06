@@ -2,6 +2,7 @@
 #include .\fn.ahk
 
 +Space::Send {Esc}
++CapsLock::Send {Esc}
 CapsLock & A::Send {End}
 CapsLock & I::Send {Home}
 PrintScreen::AppsKey
