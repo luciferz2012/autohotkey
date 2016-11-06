@@ -6,6 +6,7 @@
 CapsLock & A::Send {End}
 CapsLock & I::Send {Home}
 PrintScreen::AppsKey
+Esc & /::reload
 
 CapsLock::
 if WinActive("ahk_group VimGroup"){
@@ -90,5 +91,25 @@ return
     ::zcb::
         Input_Eng("25a1")
         Send !x
+    return
+}
+
+#IfWinActive Leapdroid
+{
+    Train(){
+        send 1
+        sleep 3000
+        send 2
+    }
+
+    TrainLoop(){
+        loop{
+            Train()
+            sleep 3000
+        }
+    }
+
+    /::
+        TrainLoop()
     return
 }

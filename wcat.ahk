@@ -1,7 +1,7 @@
 ﻿speed := 3.5
 wait := 300
 
-#IfWinActive, BlueStacks App Player
+#IfWinActive, Leapdroid
 
     z::reload
 
@@ -242,4 +242,21 @@ wait := 300
 
     m::
         EventAll()
+    return
+
+    Train(){
+        send 1
+        sleep 3000
+        send 2
+    }
+
+    TrainLoop(){
+        loop{
+            Train()
+            sleep 3000
+        }
+    }
+
+    /::
+        TrainLoop()
     return
