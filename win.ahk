@@ -96,20 +96,33 @@ return
 
 #IfWinActive Leapdroid
 {
-    Train(){
-        send 1
-        sleep 3000
-        send 2
-    }
-
     TrainLoop(){
         loop{
-            Train()
+            send 1
+            sleep 3000
+            send 2
+            sleep 3000
+            send 3
             sleep 3000
         }
     }
 
     /::
         TrainLoop()
+    return
+
+    GiftLoop(){
+        loop{
+            send 4
+            sleep 1000
+            send 2
+            sleep 1000
+            send 2
+            sleep 3000
+        }
+    }
+
+    .::
+        GiftLoop()
     return
 }
