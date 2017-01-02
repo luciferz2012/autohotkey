@@ -104,10 +104,12 @@ return
             sleep 3000
             send 3
             sleep 3000
+            send 5
+            sleep 3000
         }
     }
 
-    /::
+    [::
         TrainLoop()
     return
 
@@ -122,7 +124,7 @@ return
         }
     }
 
-    .::
+    ]::
         GiftLoop()
     return
 }
