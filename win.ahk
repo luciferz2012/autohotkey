@@ -93,38 +93,3 @@ return
         Send !x
     return
 }
-
-#IfWinActive Leapdroid
-{
-    TrainLoop(){
-        loop{
-            send 1
-            sleep 3000
-            send 2
-            sleep 3000
-            send 3
-            sleep 3000
-            send 5
-            sleep 3000
-        }
-    }
-
-    [::
-        TrainLoop()
-    return
-
-    GiftLoop(){
-        loop{
-            send 4
-            sleep 1000
-            send 2
-            sleep 1000
-            send 2
-            sleep 3000
-        }
-    }
-
-    ]::
-        GiftLoop()
-    return
-}
