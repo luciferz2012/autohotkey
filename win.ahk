@@ -1,5 +1,4 @@
 #Include .\vim.ahk
-#include .\fn.ahk
 
 +Space::Send {Esc}
 +CapsLock::Send {Esc}
@@ -84,7 +83,7 @@ return
     ; check radio
     ::zcr::
         Input_Eng("25cb")
-        Send !x
+        Send !
     return
 
     ; check box
@@ -93,3 +92,7 @@ return
         Send !x
     return
 }
+
+#IfWinActive ahk_exe devenv.exe
+    RAlt::Down
+#IfWinActive
