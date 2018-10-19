@@ -95,4 +95,5 @@ return
 
 #IfWinActive ahk_exe devenv.exe
     RAlt::Down
+    RCtrl::Up
 #IfWinActive
